@@ -22,7 +22,7 @@ align-items: center;
     width: 23%;
     border-radius: 30%;
     background-color: rgba(245, 222, 179, 0.507);
-    transition: width 1s, height 1s, box-shadow 1s, background-color 1s;
+    transition: width 0.2s, height 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
 .home-nav button:hover{
     height: 80%;
@@ -35,10 +35,20 @@ align-items: center;
 background-image: url("../../img/keep.png");
 background-size: contain;
 background-repeat: no-repeat;
+background-size: 70%;
+background-position: center;
 }
 .mail{
-
+background-image: url("../../img/email-icon.png");
+background-size: contain;
+background-repeat: no-repeat;
+background-size: 70%;
+background-position: center;
 }
 .book{
-
+background-image: url("../../img/books-icon.png");
+background-size: contain;
+background-repeat: no-repeat;
+background-size: 70%;
+background-position: center;
 }
