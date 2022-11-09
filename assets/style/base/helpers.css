@@ -1,22 +1,26 @@
 /* flex helpers */
 
 .flex {
-  display: flex;
+    display: flex;
 }
 
-.flex.flex-column{
+.flex.flex-column {
     flex-direction: column;
 }
 
-.flex.justify-center{
+.flex.flex-row {
+    flex-direction: row;
+}
+
+.flex.justify-center {
     justify-content: center;
 }
 
-.flex.justify-between{
+.flex.justify-between {
     justify-content: space-between;
 }
 
-.flex.align-center{
+.flex.align-center {
     align-items: center;
 }
 
@@ -41,17 +45,17 @@
 }
 
 .fa.fa-facebook::before {
-    content: "\f39e";
+    content: '\f39e';
 }
 
 .fa.fa-twitter::before {
-    content: "\f099";
+    content: '\f099';
 }
 
 .fa.fa-dribbble::before {
-    content: "\f17d";
+    content: '\f17d';
 }
 
 .fa.fa-behance::before {
-    content: "\f1b4";
+    content: '\f1b4';
 }
