@@ -13,7 +13,8 @@
 
 .app-footer{
   /* width:100%; */
-  
+    border-top:3px ridge silver;;
+
   position: fixed;
   left: 0;
   bottom: 0;

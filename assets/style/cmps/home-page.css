@@ -1,9 +1,44 @@
 .home-page{
     
     /* min-height: 100vh; */
-    background-color: aqua;
     background-image: url("../../img/light-blue-water-fountain-h9lnrmxm666fesy4.jpg");
     height: 85vh;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.home-nav{
+    border:3px ridge silver;
+    width: 40%;
+    height: 30%;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.249);
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+align-items: center;
+}
+.home-nav button{
+    height: 70%;
+    width: 23%;
+    border-radius: 30%;
+    background-color: rgba(245, 222, 179, 0.507);
+    transition: width 1s, height 1s, box-shadow 1s, background-color 1s;
+}
+.home-nav button:hover{
+    height: 80%;
+    width: 26%;
+    padding: 10px;
+    background-color: rgba(245, 222, 179, 0.677);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.keep{
+background-image: url("../../img/keep.png");
+background-size: contain;
+background-repeat: no-repeat;
+}
+.mail{
+
+}
+.book{
+
 }
