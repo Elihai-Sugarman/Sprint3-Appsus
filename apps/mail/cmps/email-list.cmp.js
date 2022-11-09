@@ -10,7 +10,9 @@ export default {
             <td>Sent At</td>
         </tr>
         <tr v-for="email in emails" :key="email.id">
-            <email-preview :email="email"/>
+            <!-- <router-link :to="'/email/' + email.id"> -->
+                <email-preview :email="email"/>
+            <!-- </router-link> | -->
         </tr>
     </table>
     `,

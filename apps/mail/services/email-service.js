@@ -17,9 +17,7 @@ const gEmails = [
     {
         id: utilService.makeId(),
         subject: 'Bills',
-        body: `Greetings,
-                Attached are several accounts for which your account is still charged.
-                We would appreciate it if you could address the issue as soon as possible.`,
+        body: `Greetings,\nAttached are several accounts for which your account is still charged.\nWe would appreciate it if you could address the issue as soon as possible.`,
         isRead: true,
         sentAt: new Date('2022-11-01').toDateString(),
         from: 'koko@koko.com',
@@ -28,10 +26,7 @@ const gEmails = [
     {
         id: utilService.makeId(),
         subject: 'Greetings from Norway',
-        body: `Hi, how are you?
-            You won't believe how much fun we have here. When we come back, get ready to hear a lot of stories :)
-            It's a shame you're not here with us, but you're in our hearts... and don't worry, we'll buy you something at duty free on the way back.
-            Regards to everyone!`,
+        body: `Hi, how are you?\nYou won't believe how much fun we have here. When we come back, get ready to hear a lot of stories :)\nIt's a shame you're not here with us, but you're in our hearts... and don't worry, we'll buy you something at duty free on the way back.\nRegards to everyone!`,
         isRead: false,
         sentAt: new Date('2022-10-28').toDateString(),
         from: 'popo@popo.com',
