@@ -5,10 +5,10 @@ export default {
     name: 'email-preview',
     props: ['email'],
     template: `
+    <td :class="readOrNot"><input type="checkbox" @input="checkEmail"></td>
     <!-- <td :class="readOrNot" @click="readEmail">{{ email.from }}</td>
     <td :class="readOrNot" @click="readEmail">{{ email.subject }}</td>
     <td :class="readOrNot" @click="readEmail">{{ email.sentAt }}</td> -->
-    <td :class="readOrNot"><input type="checkbox" @input="checkEmail"></td>
     <td :class="readOrNot" @click="readEmail"><router-link :to="'/mail/' + email.id">{{ email.from }}</router-link></td>
     <td :class="readOrNot" @click="readEmail"><router-link :to="'/mail/' + email.id">{{ email.subject }}</router-link></td>
     <td :class="readOrNot" @click="readEmail"><router-link :to="'/mail/' + email.id">{{ email.sentAt }}</router-link></td>
@@ -19,8 +19,8 @@ export default {
             storageService.put(emailService.EMAILS_KEY, this.email)
         },
         checkEmail() {
-            console.log('check')
-            this.$emit('check', this.email.id)
+            this.email.isChecked = !this.email.isChecked
+            storageService.put(emailService.EMAILS_KEY, this.email)
         },
     },
     computed: {

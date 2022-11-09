@@ -41,9 +41,4 @@ export default {
         //     // return '(' + count + ')'
         // },
     },
-    methods: {
-        filter() {
-            this.$emit('filter', 'check')
-        },
-    },
 }

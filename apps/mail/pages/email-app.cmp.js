@@ -8,8 +8,8 @@ import emailDetails from './email-details.cmp.js'
 export default {
     template: `
         <section class="email-app flex flex-row">
-            <section class="email-nav" :email="emails">
-                <email-folder-list />
+            <section class="email-nav">
+                <email-folder-list :emails="emailsToShow"/>
             </section>
             <section class="email-content">
                 <email-filter @filter="filter"/>
@@ -42,6 +42,7 @@ export default {
     },
     computed: {
         emailsToShow() {
+            emailService.query().then((emails) => (this.emails = emails))
             if (!this.filterBy) return this.emails
         },
     },
