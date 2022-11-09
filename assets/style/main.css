@@ -11,8 +11,14 @@
 /* General Components */
 @import 'cmps/home-page.css';
 @import 'cmps/app-header.css';
+@import 'cmps/app-footer.css';
 @import 'cmps/user-msg.css';
 
 /* Apps */
 @import 'apps/mail/mail-app.css';
 @import 'apps/note/note-app.css';
+
+body{
+    height: 100vh;
+    background-color: antiquewhite;
+}
