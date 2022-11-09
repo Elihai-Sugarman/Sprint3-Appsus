@@ -15,10 +15,11 @@
 @import 'cmps/user-msg.css';
 
 /* Apps */
-@import 'apps/mail/mail-app.css';
+@import 'apps/mail/email-app.css';
+@import 'apps/mail/email-list.css';
 @import 'apps/note/note-app.css';
 
-body{
+body {
     height: 100vh;
     background-color: antiquewhite;
 }

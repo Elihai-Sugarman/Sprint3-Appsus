@@ -16,6 +16,7 @@ export default {
         </tr>
     </table>
     `,
+    methods: {},
     components: {
         emailPreview,
     },

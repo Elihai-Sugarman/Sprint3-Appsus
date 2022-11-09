@@ -1,5 +1,6 @@
 import { emailService } from '../services/email-service.js'
 
+import emailFolderList from '../cmps/email-folder-list.cmp.js'
 import emailFilter from '../cmps/email-filter.cmp.js'
 import emailList from '../cmps/email-list.cmp.js'
 
@@ -7,7 +8,7 @@ export default {
     template: `
         <section class="email-app flex flex-row">
             <section class="email-nav">
-                <h1>email folder list</h1>
+                <email-folder-list />
             </section>
             <section class="email-content">
                 <email-filter @filter="filter"/>
@@ -38,6 +39,7 @@ export default {
         },
     },
     components: {
+        emailFolderList,
         emailFilter,
         emailList,
     },

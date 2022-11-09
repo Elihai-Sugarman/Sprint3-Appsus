@@ -18,7 +18,7 @@ const gEmails = [
         id: utilService.makeId(),
         subject: 'Bills',
         body: `Greetings,\nAttached are several accounts for which your account is still charged.\nWe would appreciate it if you could address the issue as soon as possible.`,
-        isRead: true,
+        isRead: false,
         sentAt: new Date('2022-11-01').toDateString(),
         from: 'koko@koko.com',
         to: 'user@appsus.com',
@@ -30,7 +30,7 @@ const gEmails = [
         isRead: false,
         sentAt: new Date('2022-10-28').toDateString(),
         from: 'popo@popo.com',
-        to: 'friend@appsus.com',
+        to: 'user@appsus.com',
     },
 ]
 const loggedinUser = {
@@ -61,6 +61,7 @@ export const emailService = {
     get,
     remove,
     save,
+    EMAILS_KEY,
 }
 
 function query() {
