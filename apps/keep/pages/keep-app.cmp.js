@@ -14,22 +14,15 @@ import noteList from '../cmps/note-list.cmp.js'
 
 export default {
     template: `
-    <section class="keep-app">
-    
-    <section></section>
-        <note-filter @filter="filter"/>
-        <note-list 
-            @selected="selectNote" 
-            @remove="removeNote" 
-            :notes="notesToShow"/>
-
-        <note-details 
-            @close="selectedNote = null" 
-            v-if="selectedNote" 
-            :note="selectedNote"/>
-
-        <!-- <note-edit @saved="noteSaved"/> -->
-    </section>
+   <section class="keep-app flex flex-row">
+        <section class="note-nav" ></section>
+        <section class="note-content flex flex-column">
+           <note-filter class="note-search" @filter="filter"/>
+           <note-list @selected="selectNote" @remove="removeNote" :notes="notesToShow"/>
+           <note-details @close="selectedNote = null" v-if="selectedNote" :note="selectedNote"/>
+           <!-- <note-edit @saved="noteSaved"/> -->
+        </section>
+   </section>
     `,
     created() {
         this.notes = noteService.query()

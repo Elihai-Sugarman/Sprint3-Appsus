@@ -2,7 +2,7 @@
 
 
 export default {
-//     template: `
-//        
-//     `,
+    template: `
+       <h1>there will be light</h1>
+    `,
 }

@@ -12,19 +12,41 @@ const NOTES_KEY = 'notes'
 const FIRST_NOTES = [
     {
         id: "n101",
-        type: "note-txt",
+        type: "noteImg",
         isPinned: true,
         info: { txt: "Fullstack Me Baby!" }
     },
     {
         id: "n102",
-        type: "note-img",
+        type: "noteImg",
+        isPinned: true,
         info: {url: "http://some-img/me",title: "Bobi and Me"},
         style: { backgroundColor: "#00d" }
     },
     {
         id: "n103",
-        type: "note-todos",
+        type: "noteTodos",
+        isPinned: true,
+        info: {label: "Get my stuff together", todos:[{txt: "Driving liscence", doneAt: null},{ txt: "Coding power", doneAt: 187111111 }]
+        }
+    },
+    {
+        id: "n104",
+        type: "noteText",
+        isPinned: true,
+        info: { txt: "Fullstack Me Baby!" }
+    },
+    {
+        id: "n105",
+        type: "noteVideo",
+        isPinned: false,
+        info: {url: "http://some-img/me",title: "Bobi and Me"},
+        style: { backgroundColor: "#00d" }
+    },
+    {
+        id: "n106",
+        type: "noteTodos",
+        isPinned: true,
         info: {label: "Get my stuff together", todos:[{txt: "Driving liscence", doneAt: null},{ txt: "Coding power", doneAt: 187111111 }]
         }
     }

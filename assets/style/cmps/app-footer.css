@@ -13,14 +13,14 @@
 
 .app-footer{
   /* width:100%; */
-    border-top:3px ridge silver;;
-
+  border-top:3px ridge silver;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgb(0, 128, 255);
-  color: white;
+  background-color: rgba(192, 192, 192, 0.294);
+  color: rgb(13, 11, 11);
   text-align: center;
+
 }
 

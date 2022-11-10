@@ -2,7 +2,8 @@
   background-color: var(--clr5);
   color: var(--secondary-clr1);
   padding: 1em;
-  border-bottom:3px ridge silver;;
+  border-bottom:3px ridge silver;
+  margin-bottom: 1%;
 }
 
 @media(max-width: 720px) {
