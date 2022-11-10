@@ -21,6 +21,7 @@ export default {
         checkEmail() {
             this.email.isChecked = !this.email.isChecked
             storageService.put(emailService.EMAILS_KEY, this.email)
+            // this.$emit('checked', this.email.id)
         },
     },
     computed: {

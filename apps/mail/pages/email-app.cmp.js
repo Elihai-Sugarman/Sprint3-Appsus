@@ -9,12 +9,11 @@ export default {
     template: `
         <section class="email-app flex flex-row">
             <section class="email-nav">
-                <email-folder-list :emails="emailsToShow"/>
+                <email-folder-list :emails="emailsToShow" @change="changeStatus"/>
             </section>
             <section class="email-content">
                 <email-filter @filter="filter"/>
-                <email-list :emails="emailsToShow"/>
-                <!-- <component :is="cmpType" :emails="emailsToShow" @click="changeCmp"></component> -->
+                <router-view></router-view>
             </section>
             
         </section>
@@ -24,6 +23,7 @@ export default {
             cmpType: 'emailList',
             emails: [],
             filterBy: null,
+            status: 'inbox',
         }
     },
     created() {
@@ -39,10 +39,21 @@ export default {
             if (this.cmpType === 'emailList') this.cmpType = 'emailDetails'
             else this.cmpType = 'emailList'
         },
+        changeStatus(status) {
+            this.status = status
+        },
     },
     computed: {
         emailsToShow() {
             emailService.query().then((emails) => (this.emails = emails))
+            this.emails.filter((email) => {
+                // console.log(this.status, email.from)
+                return (
+                    (this.status === 'inbox' &&
+                        email.from !== 'user@appsus.com') ||
+                    (this.status === 'sent' && email.from === 'user@appsus.com')
+                )
+            })
             if (!this.filterBy) return this.emails
         },
     },

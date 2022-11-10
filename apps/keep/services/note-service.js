@@ -1,4 +1,3 @@
-
 import { utilService } from '../../../services/util.service.js'
 
 export const noteService = {
@@ -11,49 +10,65 @@ const NOTES_KEY = 'notes'
 
 const FIRST_NOTES = [
     {
-        id: "n101",
-        type: "noteText",
+        id: 'n101',
+        type: 'noteText',
         isPinned: true,
-        info: { txt: `Third times a Charm
+        info: {
+            txt: `Third times a Charm
 When you use the expression ‘Third time/’s a Charm’ you mean that the third time
 something is attempted, luck is sure to result. The phrase is also used as an
 actual good luck charm that’s spoken just before you try something for the
-third time.`  }
+third time.`,
+        },
     },
     {
-        id: "n102",
-        type: "noteImg",
+        id: 'n102',
+        type: 'noteImg',
         isPinned: false,
-        info: {url: "https://pixabay.com/images/id-3554261/",title: "Bobi and Me"},
-        style: { backgroundColor: "#00d" }
+        // info: {url: "https://pixabay.com/images/id-3554261/",title: "Bobi and Me"},
+        info: {
+            url: 'https://cdn.pixabay.com/photo/2018/07/22/10/32/monkey-3554261_960_720.jpg',
+            title: 'Bobi and Me',
+        },
+        style: { backgroundColor: '#00d' },
     },
     {
-        id: "n103",
-        type: "noteTodos",
+        id: 'n103',
+        type: 'noteTodos',
         isPinned: true,
-        info: {label: "Get my stuff together", todos:[{txt: "Driving liscence", doneAt: null},{ txt: "Coding power", doneAt: 187111111 }]
-        }
+        info: {
+            label: 'Get my stuff together',
+            todos: [
+                { txt: 'Driving liscence', doneAt: null },
+                { txt: 'Coding power', doneAt: 187111111 },
+            ],
+        },
     },
     {
-        id: "n104",
-        type: "noteText",
+        id: 'n104',
+        type: 'noteText',
         isPinned: true,
-        info: { txt: "Fullstack Me Baby!" }
+        info: { txt: 'Fullstack Me Baby!' },
     },
     {
-        id: "n105",
-        type: "noteVideo",
+        id: 'n105',
+        type: 'noteVideo',
         isPinned: false,
-        info: {url: "http://some-img/me",title: "Bobi and Me"},
-        style: { backgroundColor: "#00d" }
+        info: { url: 'http://some-img/me', title: 'Bobi and Me' },
+        style: { backgroundColor: '#00d' },
     },
     {
-        id: "n106",
-        type: "noteTodos",
+        id: 'n106',
+        type: 'noteTodos',
         isPinned: true,
-        info: {label: "Get my stuff together", todos:[{txt: "Driving liscence", doneAt: null},{ txt: "Coding power", doneAt: 187111111 }]
-        }
-    }
+        info: {
+            label: 'Get my stuff together',
+            todos: [
+                { txt: 'Driving liscence', doneAt: null },
+                { txt: 'Coding power', doneAt: 187111111 },
+            ],
+        },
+    },
 ]
 _createNotes()
 function query() {
@@ -75,23 +90,19 @@ function save(note) {
 function getEmptyNote() {
     return {
         id: utilService.makeId(),
-        type: "note-txt",
+        type: 'note-txt',
         isPinned: false,
-        info: { txt: "" }}
+        info: { txt: '' },
+    }
 }
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTES_KEY)
     if (!notes || !notes.length) {
         notes = []
-        
+
         FIRST_NOTES.map((note) =>
             notes.push(
-                _createNote(
-                    note.id,
-                    note.type,
-                    note.isPinned,
-                    note.info,
-                )
+                _createNote(note.id, note.type, note.isPinned, note.info)
             )
         )
         utilService.saveToStorage(NOTES_KEY, notes)
@@ -99,7 +110,7 @@ function _createNotes() {
     return notes
 }
 // "../../../assets/img/note-img-1.jpg"
-function _createNote(id,type,isPinned,info) {
+function _createNote(id, type, isPinned, info) {
     const note = {
         id: id,
         type: type,
@@ -110,13 +121,9 @@ function _createNote(id,type,isPinned,info) {
 }
 // ********
 
-
-
-
 // import { storageService } from './async-storage.service.js'
 // import gBotes from '../../data/books.json' assert {type: 'json'}
 // import {utilService} from './util.service.js'
-
 
 // _createBooks()
 // function _createBooks() {

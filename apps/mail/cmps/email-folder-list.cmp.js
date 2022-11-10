@@ -4,8 +4,8 @@ export default {
     props: ['emails'],
     template: `
     <section class="email-folder-list flex flex-column">
-        <button>Inbox ({{ unReadCount }})</button>
-        <button>Sent</button>
+        <button @click="changeFolder('inbox')">Inbox ({{ unReadCount }})</button>
+        <button @click="changeFolder('sent')">Sent</button>
         <button>Trash</button>
         <button>Draft</button>
     </section>
@@ -13,7 +13,6 @@ export default {
     data() {
         return {
             unReadCount: 0,
-            // count: 0,
             filterBy: {},
         }
     },
@@ -24,6 +23,11 @@ export default {
             })
         })
         if (!this.unReadCount) this.unReadCount = ''
+    },
+    methods: {
+        changeFolder(status) {
+            this.$emit('change', status)
+        },
     },
     computed: {
         // unReadCount() {

@@ -25,20 +25,16 @@ const routerOptions = {
         {
             path: '/mail',
             component: emailApp,
-            // children: [
-            //     {
-            //         path: 'mail/:id',
-            //         component: emailDetails,
-            //     },
-            //     {
-            //         path: 'mail/',
-            //         component: emailList,
-            //     },
-            // ],
-        },
-        {
-            path: '/mail/:id',
-            component: emailDetails,
+            children: [
+                {
+                    path: '/mail/:id',
+                    component: emailDetails,
+                },
+                {
+                    path: '/mail/',
+                    component: emailList,
+                },
+            ],
         },
     ],
 }

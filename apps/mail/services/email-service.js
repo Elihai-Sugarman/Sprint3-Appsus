@@ -28,10 +28,34 @@ const gEmails = [
         id: utilService.makeId(),
         subject: 'Greetings from Norway',
         body: `Hi, how are you?\nYou won't believe how much fun we have here. When we come back, get ready to hear a lot of stories :)\nIt's a shame you're not here with us, but you're in our hearts... and don't worry, we'll buy you something at duty free on the way back.\nRegards to everyone!`,
+        isRead: true,
+        sentAt: new Date('2022-10-28').toDateString(),
+        isChecked: false,
+        from: 'user@appsus.com',
+        to: 'popo@popo.com',
+    },
+    {
+        id: utilService.makeId(),
+        subject: 'AD MATAY!!!',
+        body: `This is not working, please help me`,
+        isRead: true,
+        sentAt: new Date('2022-11-10').toDateString(),
+        isChecked: false,
+        from: 'user@appsus.com',
+        to: 'friend@appsus.com',
+    },
+    {
+        id: utilService.makeId(),
+        subject: 'HOLIDAY SALES!',
+        body: `Only today and for the next two weeks - crazy deals!
+        On all store items!
+        
+        Come now to the branch nearest to your home and enjoy our products at an affordable price.
+        waiting for you :)`,
         isRead: false,
         sentAt: new Date('2022-10-28').toDateString(),
         isChecked: false,
-        from: 'popo@popo.com',
+        from: 'friend@appsus.com',
         to: 'user@appsus.com',
     },
 ]
