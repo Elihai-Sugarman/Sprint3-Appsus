@@ -10,9 +10,9 @@ const gEmails = [
         body: 'Would love to catch up sometimes',
         isRead: false,
         sentAt: new Date('2022-11-03').toDateString(),
-        isChecked: false,
         from: 'momo@momo.com',
         to: 'user@appsus.com',
+        isStar: false,
     },
     {
         id: utilService.makeId(),
@@ -20,9 +20,9 @@ const gEmails = [
         body: `Greetings,\nAttached are several accounts for which your account is still charged.\nWe would appreciate it if you could address the issue as soon as possible.`,
         isRead: false,
         sentAt: new Date('2022-11-01').toDateString(),
-        isChecked: false,
         from: 'koko@koko.com',
         to: 'user@appsus.com',
+        isStar: false,
     },
     {
         id: utilService.makeId(),
@@ -30,9 +30,9 @@ const gEmails = [
         body: `Hi, how are you?\nYou won't believe how much fun we have here. When we come back, get ready to hear a lot of stories :)\nIt's a shame you're not here with us, but you're in our hearts... and don't worry, we'll buy you something at duty free on the way back.\nRegards to everyone!`,
         isRead: true,
         sentAt: new Date('2022-10-28').toDateString(),
-        isChecked: false,
         from: 'user@appsus.com',
         to: 'popo@popo.com',
+        isStar: false,
     },
     {
         id: utilService.makeId(),
@@ -40,9 +40,9 @@ const gEmails = [
         body: `This is not working, please help me`,
         isRead: true,
         sentAt: new Date('2022-11-10').toDateString(),
-        isChecked: false,
         from: 'user@appsus.com',
         to: 'friend@appsus.com',
+        isStar: false,
     },
     {
         id: utilService.makeId(),
@@ -54,9 +54,9 @@ const gEmails = [
         waiting for you :)`,
         isRead: false,
         sentAt: new Date('2022-10-28').toDateString(),
-        isChecked: false,
         from: 'friend@appsus.com',
         to: 'user@appsus.com',
+        isStar: false,
     },
 ]
 const loggedinUser = {
@@ -64,12 +64,13 @@ const loggedinUser = {
     fullname: 'Mahatma Appsus',
 }
 const criteria = {
-    status: 'inbox/sent/trash/draft',
-    txt: 'puki', // no need to support complex text search
+    status: 'inbox',
+    txt: '', // no need to support complex text search
     isRead: true, // (optional property, if missing: show all)
     isStared: true, // (optional property, if missing: show all)
     lables: ['important', 'romantic'], // has any of the labels
 }
+const gCheckedEmails = []
 
 _createEmails()
 
@@ -83,11 +84,17 @@ function _createEmails() {
 }
 
 export const emailService = {
+    EMAILS_KEY,
     query,
     get,
     remove,
     save,
-    EMAILS_KEY,
+    setStatus,
+    getStatus,
+    setText,
+    getText,
+    setCheckedEmails,
+    getCheckedEmails,
 }
 
 function query() {
@@ -105,4 +112,28 @@ function remove(emailId) {
 function save(email) {
     if (email) return storageService.put(EMAILS_KEY, email)
     return storageService.post(EMAILS_KEY, email)
+}
+
+function setStatus(status) {
+    criteria.status = status
+}
+
+function getStatus() {
+    return criteria.status
+}
+
+function setText(text) {
+    criteria.txt = text
+}
+
+function getText() {
+    return criteria.txt
+}
+
+function setCheckedEmails(checkedEmails) {
+    gCheckedEmails = checkedEmails
+}
+
+function getCheckedEmails() {
+    return gCheckedEmails
 }

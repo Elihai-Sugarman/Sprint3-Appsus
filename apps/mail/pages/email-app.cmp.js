@@ -9,7 +9,7 @@ export default {
     template: `
         <section class="email-app flex flex-row">
             <section class="email-nav">
-                <email-folder-list :emails="emailsToShow" @change="changeStatus"/>
+                <email-folder-list :emails="emailsToShow"/>
             </section>
             <section class="email-content">
                 <email-filter @filter="filter"/>
@@ -20,10 +20,7 @@ export default {
     `,
     data() {
         return {
-            cmpType: 'emailList',
             emails: [],
-            filterBy: null,
-            status: 'inbox',
         }
     },
     created() {
@@ -32,29 +29,15 @@ export default {
         })
     },
     methods: {
-        filter(filterBy) {
-            console.log(filterBy)
-        },
-        changeCmp() {
-            if (this.cmpType === 'emailList') this.cmpType = 'emailDetails'
-            else this.cmpType = 'emailList'
-        },
-        changeStatus(status) {
-            this.status = status
+        filter(input) {
+            console.log(input)
+            emailService.setText(input)
         },
     },
     computed: {
         emailsToShow() {
             emailService.query().then((emails) => (this.emails = emails))
-            this.emails.filter((email) => {
-                // console.log(this.status, email.from)
-                return (
-                    (this.status === 'inbox' &&
-                        email.from !== 'user@appsus.com') ||
-                    (this.status === 'sent' && email.from === 'user@appsus.com')
-                )
-            })
-            if (!this.filterBy) return this.emails
+            return this.emails
         },
     },
     components: {

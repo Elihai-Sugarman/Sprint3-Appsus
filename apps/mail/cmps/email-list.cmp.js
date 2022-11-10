@@ -3,12 +3,13 @@ import { emailService } from '../services/email-service.js'
 
 export default {
     template: `
-    <button @click="deleteEmails">Delete</button>
-    <table>
-        <tr v-for="email in currEmails" :key="email.id">
-                <email-preview :email="email"/>
-        </tr>
-    </table>
+    <section class="email-list-cmp">
+        <img class="delete-email-icon" @click="deleteEmails" src="../../../assets/img/trash-icon.png">
+        <router-link to="/mail/compose">compose</router-link>
+        <table>
+            <email-preview v-for="email in currEmails" :key="email.id" :email="email" @checked="checkEmail"></email-preview>
+        </table>
+    </section>
     `,
     data() {
         return {
@@ -17,25 +18,51 @@ export default {
     },
     computed: {
         currEmails() {
-            emailService.query().then((emails) => (this.emails = emails))
+            emailService.query().then((emails) => {
+                this.emails = emails.filter((email) => {
+                    const status = emailService.getStatus()
+                    let address = null
+                    if (status === 'inbox' || status === 'starred')
+                        address = email.from
+                    else if (status === 'sent') address = email.to
+                    return (
+                        ((emailService.getStatus() === 'inbox' &&
+                            email.from !== 'user@appsus.com') ||
+                            (emailService.getStatus() === 'sent' &&
+                                email.from === 'user@appsus.com') ||
+                            (emailService.getStatus() === 'starred' &&
+                                email.isStar)) &&
+                        (address
+                            .toUpperCase()
+                            .includes(emailService.getText().toUpperCase()) ||
+                            email.subject
+                                .toUpperCase()
+                                .includes(emailService.getText().toUpperCase()))
+                    )
+                })
+            })
             return this.emails
         },
     },
     methods: {
-        readEmail(emailId) {
-            console.log(emailId)
+        checkEmail(emailId) {
+            const checkedEmails = emailService.getCheckedEmails()
+            const idx = checkedEmails.findIndex(
+                (checkedId) => checkedId === emailId
+            )
+            if (idx === -1) checkedEmails.push(emailId)
+            else checkedEmails.splice(idx, 1)
         },
         deleteEmails() {
-            this.emails.forEach((email) => {
-                if (email.isChecked) emailService.remove(email.id)
+            const checkedEmails = emailService.getCheckedEmails()
+            if (checkedEmails.length > 0) this.deleteEmail(checkedEmails)
+        },
+        deleteEmail(checkedEmails) {
+            const emailId = checkedEmails[0]
+            emailService.remove(emailId).then(() => {
+                checkedEmails.splice(0, 1)
+                if (checkedEmails.length > 0) this.deleteEmail(checkedEmails)
             })
-            // emailService.query().then((emails) => {
-            //     emails.forEach((email) => {
-            //         if (email.isChecked) emailService.remove(email.id)
-            //         console.log(email)
-            //     })
-            //     console.log(emails)
-            // })
         },
     },
     components: {

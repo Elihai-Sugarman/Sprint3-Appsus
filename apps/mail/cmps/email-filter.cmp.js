@@ -1,15 +1,18 @@
 export default {
     template: `
-    <h1 @click="filter">email filter</h1>
+    <section class="filter">
+        <input type="text" @input="filter" v-model="input">
+        <hr/>
+    </section>
     `,
     data() {
         return {
-            filterBy: {},
+            input: null,
         }
     },
     methods: {
         filter() {
-            this.$emit('filter', 'check')
+            this.$emit('filter', this.input)
         },
     },
 }

@@ -6,8 +6,7 @@ export default {
     <section class="email-folder-list flex flex-column">
         <button @click="changeFolder('inbox')">Inbox ({{ unReadCount }})</button>
         <button @click="changeFolder('sent')">Sent</button>
-        <button>Trash</button>
-        <button>Draft</button>
+        <button @click="changeFolder('starred')">Starred</button>
     </section>
     `,
     data() {
@@ -26,23 +25,10 @@ export default {
     },
     methods: {
         changeFolder(status) {
-            this.$emit('change', status)
+            emailService.setStatus(status)
+            const checkedEmails = emailService.getCheckedEmails()
+            checkedEmails.splice(0)
         },
     },
-    computed: {
-        // unReadCount() {
-        //     this.count = 0
-        //     emailService.query().then((emails) => {
-        //         emails.map((email) => {
-        //             if (!email.isRead) this.count++
-        //             console.log(this.count)
-        //         })
-        //     })
-        //     // return count
-        //     console.log(this.count)
-        //     return this.count
-        //     // if (count === 0) return ''
-        //     // return '(' + count + ')'
-        // },
-    },
+    computed: {},
 }
