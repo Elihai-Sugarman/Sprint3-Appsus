@@ -3,6 +3,6 @@
 
 export default {
     template: `
-       <h1>there will be light</h1>
+       
     `,
 }

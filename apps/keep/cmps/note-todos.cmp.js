@@ -7,7 +7,7 @@ export default {
        
        <section class="note-footer"></section>
        <noteFooter :note="note"/>
-       there will  light</section>
+       </section>
        `,
     methods: {
         what(note) {

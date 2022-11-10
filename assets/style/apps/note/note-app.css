@@ -105,6 +105,7 @@ margin-bottom: 5%;
   gap: 1rem;
 }
 .note{
+box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 width:100%;
 /* height: 100%; */
 border:1px ridge silver;
@@ -128,21 +129,55 @@ height: 300px;
 height: 400px;
 }
 .note-footer-btn{
+  pointer-events:all;
+    border: none;
+    background:none;
+    border-radius: 50%;
+    background-color:none ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right:7px ;
+    background-size: 50%;
+    opacity: 0.6;
+    box-shadow: none;
+   transition: opacity 0.5s ,box-shadow 0.5s;
+    border-top:3px ridge silver;
+  bottom: 0;
+  color: rgb(13, 11, 11);
+  text-align: center;
+  margin-top: 30%;
+  
+
+}
+note-footer{
+    width: 100%;
+    justify-content: space-between;
+}
+.note-footer-btn:hover{
+    opacity: 1;
+    /* width: 5%; */
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 
 }
 .note-footer-btn.trash{
+    background-image: url("../../../img/trash-icon.png");
 
 }
 .note-footer-btn.edit{
-    
+        background-image: url("../../../img/edit-icon.png");
+
 }
 .note-footer-btn.mail{
+    background-image: url("../../../img/send-email-icon.png");
 
 }
 .note-footer-btn.color{
+    background-image: url("../../../img/color-icon.png");
 
 }
 .note-footer-btn.pin{
+    background-image: url("../../../img/pinned-icon.png");
 
 }
 
