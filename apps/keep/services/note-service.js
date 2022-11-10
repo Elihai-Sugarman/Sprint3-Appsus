@@ -12,15 +12,19 @@ const NOTES_KEY = 'notes'
 const FIRST_NOTES = [
     {
         id: "n101",
-        type: "noteImg",
+        type: "noteText",
         isPinned: true,
-        info: { txt: "Fullstack Me Baby!" }
+        info: { txt: `Third times a Charm
+When you use the expression ‘Third time/’s a Charm’ you mean that the third time
+something is attempted, luck is sure to result. The phrase is also used as an
+actual good luck charm that’s spoken just before you try something for the
+third time.`  }
     },
     {
         id: "n102",
         type: "noteImg",
-        isPinned: true,
-        info: {url: "http://some-img/me",title: "Bobi and Me"},
+        isPinned: false,
+        info: {url: "../../../assets/img/note-img-1.jpg",title: "Bobi and Me"},
         style: { backgroundColor: "#00d" }
     },
     {

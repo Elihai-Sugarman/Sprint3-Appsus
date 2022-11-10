@@ -26,7 +26,6 @@ export default {
     `,
     created() {
         this.notes = noteService.query()
-        console.log(this.notes = noteService.query())
     },
     data() {
         return {
