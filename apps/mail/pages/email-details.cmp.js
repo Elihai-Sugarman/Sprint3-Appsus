@@ -6,7 +6,7 @@ export default {
         <h2>{{ email.subject }}</h2>
         <h4>{{ email.from }}</h4>
         <h4>{{ email.sentAt }}</h4>
-        <p>{{ email.body }}</p>
+        <pre>{{ email.body }}</pre>
         <router-link class=".button" to="/mail">Back</router-link>
     </section>
     `,
