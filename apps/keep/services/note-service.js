@@ -24,7 +24,7 @@ third time.`  }
         id: "n102",
         type: "noteImg",
         isPinned: false,
-        info: {url: "../../../assets/img/note-img-1.jpg",title: "Bobi and Me"},
+        info: {url: "https://pixabay.com/images/id-3554261/",title: "Bobi and Me"},
         style: { backgroundColor: "#00d" }
     },
     {
@@ -98,6 +98,7 @@ function _createNotes() {
     }
     return notes
 }
+// "../../../assets/img/note-img-1.jpg"
 function _createNote(id,type,isPinned,info) {
     const note = {
         id: id,
