@@ -6,12 +6,13 @@ import noteVideo from './note-video.cmp.js'
 export default {
     props: ['notes'],
     template: `
-        <section class="note-list">
+        <section class="note-list flex">
         <ul class="clean-list pinned">
                 <li v-for="note in isPinned" :key="note.id" @click="showDetails(note)">
                     <component :is="note.type" class="note" :note="note"></component>
                 </li> 
         </ul>
+        <h1 class="lists-devider">Unpinned</h1>
         <ul class="clean-list un-pinned">
                 <li v-for="note in isNotPinned" :key="note.id" @click="showDetails(note)">
                     <component :is="note.type" class="note" :note="note"></component>

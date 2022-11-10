@@ -25,7 +25,6 @@ third time.`,
         id: 'n102',
         type: 'noteImg',
         isPinned: false,
-        // info: {url: "https://pixabay.com/images/id-3554261/",title: "Bobi and Me"},
         info: {
             url: 'https://cdn.pixabay.com/photo/2018/07/22/10/32/monkey-3554261_960_720.jpg',
             title: 'Bobi and Me',
@@ -53,8 +52,8 @@ third time.`,
     {
         id: 'n105',
         type: 'noteVideo',
-        isPinned: false,
-        info: { url: 'http://some-img/me', title: 'Bobi and Me' },
+        isPinned: true,
+        info: { url: '0G383538qzQ', title: 'Bobi and Me' },
         style: { backgroundColor: '#00d' },
     },
     {
@@ -65,7 +64,54 @@ third time.`,
             label: 'Get my stuff together',
             todos: [
                 { txt: 'Driving liscence', doneAt: null },
-                { txt: 'Coding power', doneAt: 187111111 },
+                { txt: 'Coding power', doneAt: 387111111 },
+            ],
+        },
+    },
+     {
+        id: 'n107',
+        type: 'noteImg',
+        isPinned: true,
+        info: {
+            url: 'https://cdn.pixabay.com/photo/2018/07/22/10/32/monkey-3554261_960_720.jpg',
+            title: 'Bobi and Me',
+        },
+        style: { backgroundColor: '#00d' },
+    },
+    {
+        id: 'n108',
+        type: 'noteTodos',
+        isPinned: false,
+        info: {
+            label: 'Get my stuff together',
+            todos: [
+                { txt: 'Driving liscence', doneAt: null },
+                { txt: 'Coding power', doneAt: 387111111 },
+            ],
+        },
+    },
+    {
+        id: 'n109',
+        type: 'noteText',
+        isPinned: true,
+        info: { txt: 'Fullstack Me Baby!' },
+    },
+    {
+        id: 'n110',
+        type: 'noteVideo',
+        isPinned: true,
+        info: { url: 'NcXsK_u4ixI', title: 'Bobi and Me' },
+        style: { backgroundColor: '#00d' },
+    },
+    {
+        id: 'n111',
+        type: 'noteTodos',
+        isPinned: true,
+        info: {
+            label: 'Get my stuff together',
+            todos: [
+                { txt: 'Driving liscence', doneAt: null },
+                { txt: 'Coding power', doneAt: 387111111 },
             ],
         },
     },
@@ -109,7 +155,7 @@ function _createNotes() {
     }
     return notes
 }
-// "../../../assets/img/note-img-1.jpg"
+
 function _createNote(id, type, isPinned, info) {
     const note = {
         id: id,
