@@ -49,13 +49,7 @@ third time.`,
         isPinned: true,
         info: { txt: 'Fullstack Me Baby!' },
     },
-    {
-        id: 'n105',
-        type: 'noteVideo',
-        isPinned: true,
-        info: { url: '0G383538qzQ', title: 'Bobi and Me' },
-        style: { backgroundColor: '#00d' },
-    },
+
     {
         id: 'n106',
         type: 'noteTodos',
@@ -96,13 +90,13 @@ third time.`,
         isPinned: true,
         info: { txt: 'Fullstack Me Baby!' },
     },
-    {
-        id: 'n110',
-        type: 'noteVideo',
-        isPinned: true,
-        info: { url: 'NcXsK_u4ixI', title: 'Bobi and Me' },
-        style: { backgroundColor: '#00d' },
-    },
+    // {
+    //     id: 'n110',
+    //     type: 'noteVideo',
+    //     isPinned: true,
+    //     info: { url: 'https://www.youtube.com/embed/zG2ccH8jlCA', title: 'Bobi and Me' },
+    //     style: { backgroundColor: '#00d' },
+    // },
     {
         id: 'n111',
         type: 'noteTodos',
@@ -115,6 +109,14 @@ third time.`,
             ],
         },
     },
+    //     {
+    //     id: 'n112',
+    //     type: 'noteVideo',
+    //     isPinned: true,
+    //     info: { url: 'https://www.youtube.com/embed/zG2ccH8jlCA', title: 'The Tallest Man On Earth - Where Do My Bluebird Fly' },
+    //     style: { backgroundColor: '#00d' },
+    // },
+    
 ]
 _createNotes()
 function query() {

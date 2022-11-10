@@ -1,7 +1,7 @@
 import noteFooter from "./note-footer.cmp.js"
 export default {
-    props: ['note'],
-    template: `
+  props: ['note'],
+  template: `
        
        <section v-on:click="what(note)" class="note-video">
        <section class="note-header"></section>
@@ -12,21 +12,20 @@ export default {
        <noteFooter :note="note"/>
        </section>
     `,
-    methods: {
-        what(note) {
-           console.log(note) 
-        },
-        getDate() {
-          this.note.toISOString().slice(0,10)  
-      },
-      imgUrl() {
-            console.log(this.note.info.url)
-        return`https://www.youtube.com/embed/${this.note.info.url}?autoplay=1&mute=1`
-        }
-  },
+  methods: {
+    what(note) {
+      console.log(note)
+    },
+    getDate() {
+      this.note.toISOString().slice(0, 10)
+    },
+    imgUrl() {
+      console.log`${this.note.info.url}?autoplay=1&mute=1`
+      return `${this.note.info.url}?autoplay=1&mute=1`
+    },
     components: {
       noteFooter
     }
+  }
+
 }
-
-
