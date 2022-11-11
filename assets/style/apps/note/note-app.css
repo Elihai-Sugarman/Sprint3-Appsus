@@ -218,6 +218,8 @@ cursor: pointer;
 .unDone:hover{
  color: rgb(191, 5, 5);
 }
-
+.colorP{
+    opacity: 0;
+}
 
 

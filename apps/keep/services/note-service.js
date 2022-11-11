@@ -73,6 +73,16 @@ const FIRST_NOTES = [
         style: { backgroundColor: '#00d' },
     },
      {
+        id: 'n137',
+        type: 'noteImg',
+        isPinned: true,
+        info: {
+            url: 'https://images.unsplash.com/photo-1582972236019-ea4af5ffe587?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80',
+            title: 'Dear Goa, I Miss You!',
+        },
+        style: { backgroundColor: '#00d' },
+    },
+     {
         id: 'n127',
         type: 'noteImg',
         isPinned: true,

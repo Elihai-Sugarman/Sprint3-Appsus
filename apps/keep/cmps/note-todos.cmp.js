@@ -17,8 +17,8 @@ export default {
         // selected: undefined,
         done: "done",
         unDone:"unDone",
-       
-      };
+  
+      }
     },
     methods: {
         what(note) {
