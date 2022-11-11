@@ -22,9 +22,13 @@ export default {
                 this.emails = emails.filter((email) => {
                     const status = emailService.getStatus()
                     let address = null
-                    if (status === 'inbox' || status === 'starred')
+                    if (status === 'inbox' || email.from !== 'user@appsus.com')
                         address = email.from
-                    else if (status === 'sent') address = email.to
+                    else if (
+                        status === 'sent' ||
+                        email.from === 'user@appsus.com'
+                    )
+                        address = email.to
                     return (
                         ((emailService.getStatus() === 'inbox' &&
                             email.from !== 'user@appsus.com') ||
