@@ -1,15 +1,6 @@
-// export default {
-//     template: `
-//         <footer class="keep-app">
-//             <h1>Keep App</h1>
-//         </footer>
-//     `,
-// }
 import { noteService } from '../services/note-service.js'
-
 import noteFilter from '../cmps/note-filter.cmp.js'
 import noteDetails from './note-details.cmp.js'
-// import noteEdit from '../cmps/'
 import noteList from '../cmps/note-list.cmp.js'
 
 export default {
@@ -36,6 +27,7 @@ export default {
     },
     methods: {
         removeNote(noteId) {
+            console.log("im removing")
             noteService.remove(noteId)
 
             const idx = this.notes.findIndex((note) => note.id === noteId)

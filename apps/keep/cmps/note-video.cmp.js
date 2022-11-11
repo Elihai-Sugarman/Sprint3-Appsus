@@ -2,30 +2,28 @@ import noteFooter from "./note-footer.cmp.js"
 export default {
   props: ['note'],
   template: `
-       
-       <section v-on:click="what(note)" class="note-video">
+    <section class="note-video">
        <section class="note-header"></section>
        <h1 class="note-title">{{this.note.info.title}}</h1>
-       <iframe width="100%" height="75%" :src=imgUrl() >
-       </iframe>
-       
-       <noteFooter :note="note"/>
-       </section>
+       <iframe width="100%" height="70%"
+         :src=vidUrl()></iframe>
+       <noteFooter @remove="removeNote($event)" :note="note"/>
+    </section>
     `,
   methods: {
-    what(note) {
-      console.log(note)
+    // getDate() {
+    //   this.note.toISOString().slice(0, 10)
+    // },
+    vidUrl() {
+      console.log("triggerd url")
+      return `${this.note.info.url}`
     },
-    getDate() {
-      this.note.toISOString().slice(0, 10)
-    },
-    imgUrl() {
-      console.log`${this.note.info.url}?autoplay=1&mute=1`
-      return `${this.note.info.url}?autoplay=1&mute=1`
-    },
+    removeNote(noteId) {
+      console.log("video",noteId)
+      this.$emit('remove', noteId)
+    }
+  },
     components: {
       noteFooter
     }
   }
-
-}

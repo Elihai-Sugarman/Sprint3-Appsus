@@ -15,10 +15,10 @@ const FIRST_NOTES = [
         isPinned: true,
         info: {
             txt: `Third times a Charm
-When you use the expression ‘Third time/’s a Charm’ you mean that the third time
-something is attempted, luck is sure to result. The phrase is also used as an
-actual good luck charm that’s spoken just before you try something for the
-third time.`,
+                  When you use the expression ‘Third time/’s a Charm’ you mean that the third time
+                  something is attempted, luck is sure to result. The phrase is also used as an
+                  actual good luck charm that’s spoken just before you try something for the
+                  third time.`,
         },
     },
     {
@@ -72,6 +72,16 @@ third time.`,
         },
         style: { backgroundColor: '#00d' },
     },
+     {
+        id: 'n127',
+        type: 'noteImg',
+        isPinned: true,
+        info: {
+            url: 'https://images.unsplash.com/photo-1607349658516-9fb46b47ce53?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80',
+            title: 'Bobi and Me',
+        },
+        style: { backgroundColor: '#00d' },
+    },
     {
         id: 'n108',
         type: 'noteTodos',
@@ -90,13 +100,14 @@ third time.`,
         isPinned: true,
         info: { txt: 'Fullstack Me Baby!' },
     },
-    // {
-    //     id: 'n110',
-    //     type: 'noteVideo',
-    //     isPinned: true,
-    //     info: { url: 'https://www.youtube.com/embed/zG2ccH8jlCA', title: 'Bobi and Me' },
-    //     style: { backgroundColor: '#00d' },
-    // },
+    {
+        id: 'n110',
+        type: 'noteVideo',
+        isPinned: true,
+        info: { url: 'https://www.youtube.com/embed/6mEfDSP4g_U', title: 'Crazy (Gnarls Barkley Cover) - Ray Lamontagne' },
+        style: { backgroundColor: '#00d' },
+       
+    },
     {
         id: 'n111',
         type: 'noteTodos',
@@ -109,13 +120,13 @@ third time.`,
             ],
         },
     },
-    //     {
-    //     id: 'n112',
-    //     type: 'noteVideo',
-    //     isPinned: true,
-    //     info: { url: 'https://www.youtube.com/embed/zG2ccH8jlCA', title: 'The Tallest Man On Earth - Where Do My Bluebird Fly' },
-    //     style: { backgroundColor: '#00d' },
-    // },
+        {
+        id: 'n112',
+        type: 'noteVideo',
+        isPinned: true,
+        info: { url: 'https://www.youtube.com/embed/zG2ccH8jlCA', title: 'The Tallest Man On Earth - Where Do My Bluebird Fly' },
+        style: { backgroundColor: '#00d' },
+    },
     
 ]
 _createNotes()

@@ -7,8 +7,7 @@ export default {
        <section class="note-header"></section>
        <h1 class="note-title">{{this.note.info.title}}</h1>
        <img :src=imgUrl() alt="Girl in a jacket" width="410"/>
-       <section class="note-footer"></section>
-       <noteFooter :note="note"/>
+       <noteFooter @remove="removeNote($event)" :note="note"/>
        </section>
     `,
     methods: {
@@ -17,7 +16,11 @@ export default {
         },
         imgUrl() {
          return this.note.info.url
-        }
+      },
+        removeNote(noteId) {
+      console.log("video",noteId)
+      this.$emit('remove', noteId)
+    }
     },
     components: {
       noteFooter

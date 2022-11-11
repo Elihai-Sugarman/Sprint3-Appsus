@@ -8,26 +8,27 @@ export default {
     template: `
         <section class="note-list flex">
         <ul class="clean-list pinned">
-                <li v-for="note in isPinned" :key="note.id" @click="showDetails(note)">
-                    <component :is="note.type" class="note" :note="note"></component>
+                <li v-for="note in isPinned" :key="note.id" >
+                    <component :is="note.type" @remove="removeNote($event)" class="note" :note="note"></component>
                 </li> 
         </ul>
         <h1 class="lists-devider">Unpinned</h1>
         <ul class="clean-list un-pinned">
-                <li v-for="note in isNotPinned" :key="note.id" @click="showDetails(note)">
-                    <component :is="note.type" class="note" :note="note"></component>
+                <li v-for="note in isNotPinned" :key="note.id" >
+                    <component :is="note.type" @remove="removeNote($event)" class="note" :note="note"></component>
                 </li>
             </ul>
         </section> 
     `,
  
     methods: {
-        remove(noteId) {
-            this.$emit('remove', noteId)
-        },
-        showDetails(note) {
-            this.$emit('selected', note)
-        }
+        // showDetails(note) {
+        //     this.$emit('selected', note)
+        // }
+    removeNote(noteId) {
+      console.log("LIST",noteId)
+      this.$emit('remove', noteId)
+    }
     },
     computed: {
         isPinned() {   
