@@ -5,7 +5,7 @@ import { utilService } from '../../../services/util.service.js'
 export default {
     template: `
     <section class="email-compose">
-        <router-link class=".button" to="/mail">Back</router-link>
+        <router-link class=".button" to="/mail"><button class="comp-back-btn">Back</button></router-link>
         <h1>New Message</h1>
         <form class="flex flex-column" @submit="onSubmit">
             <label>
@@ -19,7 +19,7 @@ export default {
             <label>
                 <textarea type="text" v-model="body"/>
             </label>
-            <button><router-link class=".button" to="/mail">Send</router-link></button>
+            <button class="compose-btn"><router-link class=".button" to="/mail">Send</router-link></button>
         </form>
     </section>
         `,

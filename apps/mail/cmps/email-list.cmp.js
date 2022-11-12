@@ -4,8 +4,10 @@ import { emailService } from '../services/email-service.js'
 export default {
     template: `
     <section class="email-list-cmp">
+    <section class="mail-list-header">
         <img class="delete-email-icon" @click="deleteEmails" src="../../../assets/img/trash-icon.png">
-        <router-link to="/mail/compose">compose</router-link>
+        <router-link  to="/mail/compose"><button class="compose-btn">compose</button></router-link>
+        </section>
         <table>
             <email-preview v-for="email in currEmails" :key="email.id" :email="email" @checked="checkEmail"></email-preview>
         </table>
