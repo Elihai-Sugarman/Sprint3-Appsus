@@ -1,12 +1,12 @@
 import noteFooter from "./note-footer.cmp.js"
 export default {
     props: ['note'],
-    emits:['remove','pinChange','backgroundChange',"duplicate"],
+    emits:['remove','pinChange','backgroundChange',"duplicate",'editNote'],
     template: `
     <section class="note-txt">
         <section class="note-header"></section>
         <i class="note-txt">{{note.info.txt}}</i>
-        <noteFooter @remove="removeNote($event)" @pinChange="pinChange($event)" @backgroundChange="backgroundChange($event)" @duplicate="duplicate($event)" :note="note"/>
+        <noteFooter @remove="removeNote($event)" @pinChange="pinChange($event)" @backgroundChange="backgroundChange($event)" @duplicate="duplicate($event)" @editNote="editNote($event)" :note="note"/>
         </section>
     `,
     methods: {
@@ -27,6 +27,9 @@ export default {
     },
        duplicate(noteId) {
         this.$emit('duplicate',noteId)
+        },
+         editNote(noteId) {
+        this.$emit('editNote',noteId)
         },
     }, 
     

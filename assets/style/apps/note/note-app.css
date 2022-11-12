@@ -18,14 +18,59 @@ width: 35%;
 display: flex;
 }
 .note-nav{
-    
+    /* position */
+    position:static;
+    display: flex;
     width: 15%;
     height: 100%;
+    width:15%;
     border: 5.5px ridge silver; 
     border-left: none;
     background-color: rgba(235, 196, 134, 0.451);
     border-radius: 0 50% 50% 0;
+    justify-content: flex-start;
+    align-items: center;
+    color: black;
+    opacity: 0.2;
+    transition: opacity 0.4s;
+    /* margin-left: -10%; */
+}
+.note-nav:hover{
+    /* transition-delay: 0.4s; */
+    opacity: 1;
 
+}
+.note-textarea-form{
+    width: 230px;
+    font-size: 16px;
+    text-align: left;
+    height: 250px;
+}
+.form-save-btn{
+    margin-left: 30px;
+}
+.edit-form{
+    font-size: 20px;
+    background-color: #eb7474;
+    width: 50px;
+    height: 100px;
+    color: black;
+}
+
+.note-edit{
+    font-size: 30px;
+    color: black;
+    /* position: fixed; */
+    width: 80%;
+    height: 70%;
+    /* color: aliceblue; */
+    /* border: 5.5px ridge silver;  */
+    margin-left: 2%;
+    /* z-index: 8; */
+    /* background-color: #bf9e53; */
+}
+.form-text{
+    font-size: 1.2rem;
 }
 .note-content{
     align-items: center;
@@ -278,6 +323,28 @@ background-color: #eb7474;
 }
 .border-line{
     
+}
+.form-note-img.note{
+    position: relative;
+/* box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;  */
+box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+width:100%;
+padding:15px;
+border:none;
+
+/* background-color: #8cd3ec9e; */
+/* min-height: 250px; */
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-direction: column; 
+  padding: 13px; 
+  display: inline-block;
+  margin: 0 0 1em;
+  height: fit-content;
+  max-width: 380px;
+background-color: none;
 }
 
 

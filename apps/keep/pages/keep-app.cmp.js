@@ -3,18 +3,20 @@ import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.servic
 import noteFilter from '../cmps/note-filter.cmp.js'
 import noteDetails from './note-details.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
+import noteEditing from '../cmps/note-edit.cmp.js'
 
 export default {
     // emits:['remove','pinChange','backgroundChange'],
     template: `
    <section class="keep-app flex flex-row">
-        <section class="note-nav" ></section>
+        <section class="note-nav">
+        <note-editing class="note-editing" :note='noteToEdit'/>
+        </section>
         
         <section class="note-content flex flex-column">
            <note-filter class="note-search" @filter="filter"/>
-           <note-list @selected="selectNote" @remove="removeNote($event)" @pinChange="pinChange($event)" @todoAddDate="todoAddDate($event)" @backgroundChange="backgroundChange($event)" @duplicate="duplicate($event)" :notes="notesToShow"/>
+           <note-list @selected="selectNote" @remove="removeNote($event)" @pinChange="pinChange($event)" @todoAddDate="todoAddDate($event)" @backgroundChange="backgroundChange($event)" @duplicate="duplicate($event)" @editNote="editNote($event)" :notes="notesToShow"/>
            <note-details @close="selectedNote = null" v-if="selectedNote" :note="selectedNote"/>
-          
         </section>
    </section>
     `,
@@ -27,7 +29,7 @@ export default {
             notes: [],
             selectedNote: null,
             filterBy: null,
-            
+            noteToEdit:"",
         }
     },
     methods: {
@@ -51,6 +53,10 @@ export default {
                 this.notes = noteService.query()
                 showSuccessMsg(`Note Duplicated`)
                 })
+        },
+        editNote(noteId) {
+              this.noteToEdit=noteId
+        this.$emit('editNote',noteId)
         },
         selectNote(note) {
             this.selectedNote = note
@@ -108,6 +114,7 @@ export default {
         noteFilter,
         noteDetails,
         noteService,
+        noteEditing,
         // noteEdit,
         noteList,
     },

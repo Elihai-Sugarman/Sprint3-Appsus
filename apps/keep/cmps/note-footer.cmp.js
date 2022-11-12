@@ -3,11 +3,11 @@ import { router } from "../../../routes.js"
 // import { noteService } from '../services/note-service.js'
 export default {
     props: ['note'],
-    emits:['remove','pinChange','backgroundChange','duplicate'],
+    emits:['remove','pinChange','backgroundChange','duplicate','editNote'],
     template: `
 
        <section class="note-footer search-bar-btns">
-       <button class="note-footer-btn  edit" title="Edit Note"></button>
+       <button class="note-footer-btn  edit" title="Edit Note" @click="$emit('editNote',note)"></button>
        <button class="note-footer-btn  duplicate" title="Duplicate Note" @click="$emit('duplicate',note.id)" ></button>
        <button class="note-footer-btn  color" title="Change Color" v-on:click="pickerChange"></button>
        <button class="note-footer-btn mail" title="Email Note" v-on:click="mailOutMsg"></button>

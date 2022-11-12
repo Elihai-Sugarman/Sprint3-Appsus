@@ -11,7 +11,7 @@ export default {
 
         <ul class="clean-list pinned">
                 <li v-for="(note,index) in isPinned" :key="note.id" >
-                    <component :is="note.type" :style="note.style" @remove="removeNote($event)" @pinChange="pinChange($event)" @todoAddDate="todoAddDate($event)" @backgroundChange="backgroundChange($event)" @duplicate="duplicate($event)" class="note" :note="note"></component>
+                    <component :is="note.type" :style="note.style" @remove="removeNote($event)" @pinChange="pinChange($event)" @todoAddDate="todoAddDate($event)" @backgroundChange="backgroundChange($event)" @duplicate="duplicate($event)" @editNote="editNote($event)" class="note" :note="note"></component>
                 </li> 
         </ul>
 
@@ -19,7 +19,7 @@ export default {
 
         <ul class="clean-list un-pinned">
                 <li v-for="note in isNotPinned" :key="note.id" >
-                    <component :is="note.type" :style="note.style" @remove="removeNote($event)" @pinChange="pinChange($event)"  @todoAddDate="todoAddDate($event)" @backgroundChange="backgroundChange($event)" @duplicate="duplicate($event)" class="note" :note="note"></component>
+                    <component :is="note.type" :style="note.style" @remove="removeNote($event)" @pinChange="pinChange($event)"  @todoAddDate="todoAddDate($event)" @backgroundChange="backgroundChange($event)" @duplicate="duplicate($event)" @editNote="editNote($event)" class="note" :note="note"></component>
                 </li>
             </ul>
         </section> 
@@ -46,7 +46,11 @@ export default {
         backgroundChange(style) {
             console.log(style)
         this.$emit('backgroundChange', style)
-    }
+        },
+        editNote(noteId) {
+              console.log(noteId)
+        this.$emit('editNote',noteId)
+        },
     },
     computed: {
         isPinned() {   

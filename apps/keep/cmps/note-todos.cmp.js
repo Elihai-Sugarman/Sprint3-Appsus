@@ -1,15 +1,15 @@
 import noteFooter from "./note-footer.cmp.js"
 export default {
   props: ['note'],
-  emits:['remove','pinChange','backgroundChange','todoAddDate',"duplicate"],
+  emits:['remove','pinChange','backgroundChange','todoAddDate',"duplicate",'editNote'],
     template: `
-    <section v-on:click="what(note)" class="note-todos">
+    <section  class="note-todos">
        <section class="note-header"></section>
        <ul id="vue">
            <li v-for="(text,index) in note.info.todos" @click="selected(index)" :class="[this.note.info.todos[index].doneAt ? done : unDone]" :change="dateReturn(index)" :key="note.id">{{note.info.todos[index].txt}} {{date}} 
            </li>
        </ul>
-       <noteFooter @remove="removeNote($event)" @pinChange="pinChange($event)" @backgroundChange="backgroundChange($event)" @duplicate="duplicate($event)" :note="note"/>
+       <noteFooter @remove="removeNote($event)" @pinChange="pinChange($event)" @backgroundChange="backgroundChange($event)" @duplicate="duplicate($event)" @editNote="editNote($event)" :note="note"/>
        </section>
        `,
     data() {
@@ -46,6 +46,9 @@ export default {
     },
        duplicate(noteId) {
         this.$emit('duplicate',noteId)
+      },
+         editNote(noteId) {
+        this.$emit('editNote',noteId)
         },
   }, 
   components: {

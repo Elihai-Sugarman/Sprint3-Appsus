@@ -9,8 +9,14 @@ export default {
         <button @click="changeFolder('starred')">Starred</button>
     </section>
     `,
+    data() {
+        return {
+            selected: 'inbox',
+        };
+    },
     methods: {
         changeFolder(status) {
+            this.selected=status
             emailService.setStatus(status)
             const checkedEmails = emailService.getCheckedEmails()
             checkedEmails.splice(0)
