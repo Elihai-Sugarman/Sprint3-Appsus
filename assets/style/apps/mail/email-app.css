@@ -247,11 +247,11 @@ textarea button {
 .email-details a:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.email-setails-headline {
+.email-details-headline {
     /* background-color: aquamarine; */
     align-items: center;
     justify-content: space-between;
-    width: 40%;
     display: flex;
+    gap: 30px;
     /* flex-direction:; */
 }

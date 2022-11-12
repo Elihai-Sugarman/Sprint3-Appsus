@@ -4,7 +4,7 @@ export default {
     template: `
     <section v-if="email" class="email-details">
         <router-link class=".button" to="/mail">Back</router-link>
-        <section class="email-setails-headline flex flex-row">
+        <section class="email-details-headline flex flex-row">
             <h2>{{ email.subject }}</h2>
             <h3>{{ email.from }}</h3>
             <h3>{{ email.sentAt }}</h3>
