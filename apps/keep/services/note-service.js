@@ -1,10 +1,12 @@
 import { utilService } from '../../../services/util.service.js'
-
+import {storageService } from '../../../services/async-storage.service.js'
 export const noteService = {
     query,
     remove,
     save,
     getEmptyNote,
+    saveUnshift,
+    noteDuplicate
 }
 const NOTES_KEY = 'notes'
 
@@ -29,7 +31,7 @@ const FIRST_NOTES = [
             url: 'https://cdn.pixabay.com/photo/2018/07/22/10/32/monkey-3554261_960_720.jpg',
             title: 'Bobi and Me',
         },
-        style: { backgroundColor: '#00d' },
+        style: { backgroundColor: '#8cd3ec9e' },
     },
     {
         id: 'n103',
@@ -70,7 +72,7 @@ const FIRST_NOTES = [
             url: 'https://cdn.pixabay.com/photo/2018/07/22/10/32/monkey-3554261_960_720.jpg',
             title: 'Bobi and Me',
         },
-        style: { backgroundColor: '#00d' },
+        style: { backgroundColor: '#8cd3ec9e' },
     },
      {
         id: 'n137',
@@ -80,7 +82,7 @@ const FIRST_NOTES = [
             url: 'https://images.unsplash.com/photo-1582972236019-ea4af5ffe587?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80',
             title: 'Dear Goa, I Miss You!',
         },
-        style: { backgroundColor: '#00d' },
+        style: { backgroundColor: '#8cd3ec9e' },
     },
      {
         id: 'n127',
@@ -90,7 +92,7 @@ const FIRST_NOTES = [
             url: 'https://images.unsplash.com/photo-1607349658516-9fb46b47ce53?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80',
             title: 'Bobi and Me',
         },
-        style: { backgroundColor: '#00d' },
+        style: { backgroundColor: '#8cd3ec9e' },
     },
     {
         id: 'n108',
@@ -115,7 +117,7 @@ const FIRST_NOTES = [
         type: 'noteVideo',
         isPinned: true,
         info: { url: 'https://www.youtube.com/embed/6mEfDSP4g_U', title: 'Crazy (Gnarls Barkley Cover) - Ray Lamontagne' },
-        style: { backgroundColor: '#00d' },
+        style: { backgroundColor: '#8cd3ec9e' },
        
     },
     {
@@ -135,7 +137,7 @@ const FIRST_NOTES = [
         type: 'noteVideo',
         isPinned: true,
         info: { url: 'https://www.youtube.com/embed/zG2ccH8jlCA', title: 'The Tallest Man On Earth - Where Do My Bluebird Fly' },
-        style: { backgroundColor: '#00d' },
+        style: { backgroundColor: '#8cd3ec9e' },
     },
     
 ]
@@ -143,19 +145,30 @@ _createNotes()
 function query() {
     return utilService.loadFromStorage(NOTES_KEY)
 }
+function save(note) {
+    
+    if(note.id){
+        return  storageService.put(NOTES_KEY, note)
+    } else {
+        return storageService.post(NOTES_KEY, note)
+    }
+}
+function saveUnshift(note) {
+return  storageService.putUnshift(NOTES_KEY, note) 
+}
 function remove(noteId) {
     const notes = query()
     const idx = notes.findIndex((note) => note.id === noteId)
     notes.splice(idx, 1)
-    utilService.saveToStorage(NOTES_KEY, notes)
+   return utilService.saveToStorage(NOTES_KEY, notes)
 }
-function save(note) {
-    note.id = utilService.makeId()
-    const notes = query()
-    notes.push(note)
-    utilService.saveToStorage(NOTES_KEY, notes)
-    return note
-}
+// function save(note) {
+//     note.id = utilService.makeId()
+//     const notes = query()
+//     notes.push(note)
+//     utilService.saveToStorage(NOTES_KEY, notes)
+//     return note
+// }
 function getEmptyNote() {
     return {
         id: utilService.makeId(),
@@ -171,7 +184,7 @@ function _createNotes() {
 
         FIRST_NOTES.map((note) =>
             notes.push(
-                _createNote(note.id, note.type, note.isPinned, note.info)
+                _createNote(note.id, note.type, note.isPinned, note.info,note.style)
             )
         )
         utilService.saveToStorage(NOTES_KEY, notes)
@@ -179,14 +192,19 @@ function _createNotes() {
     return notes
 }
 
-function _createNote(id, type, isPinned, info) {
+function _createNote(id, type, isPinned, info,style) {
     const note = {
         id: id,
         type: type,
         isPinned: isPinned,
         info: info,
+        style:style
     }
     return note
+}
+function noteDuplicate(noteToDuplicate) {
+    noteToDuplicate.id = utilService.makeId()
+    return storageService.post(NOTES_KEY, noteToDuplicate, false)
 }
 // ********
 

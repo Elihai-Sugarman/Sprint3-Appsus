@@ -1,7 +1,7 @@
 export default {
     template:`
     <form  @submit.prevent>
-                <input class="note-search-bar" v-model="search" v-on:input="getText" ref="full" type="text" placeholder="Search Note">
+                <input class="note-search-bar" v-model="filterBy.title" v-on:input="getText" ref="full" type="text" placeholder="Search Note">
                 <section class="search-bar-btns">
                 <button class="sb-btn txt"></button>
                 <button class="sb-btn pic"></button>
@@ -23,6 +23,10 @@ export default {
     methods: {
         filter() {
             this.$emit('filter', { ...this.filterBy })
+        },
+        getText() {
+            return "hi"
         }
+
     }
 }

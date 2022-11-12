@@ -3,6 +3,7 @@ export const storageService = {
     get,
     post,
     put,
+    putUnshift,
     remove,
 }
 
@@ -29,11 +30,20 @@ function post(entityType, newEntity, append = true) {
 }
 
 function put(entityType, updatedEntity) {
+    return query(entityType).then(entities => {
+        const idx = entities.findIndex(entity => entity.id === updatedEntity.id)
+        entities.splice(idx, 1, updatedEntity)
+        _save(entityType, entities)
+        return updatedEntity
+    })
+}
+function putUnshift(entityType, updatedEntity) {
     return query(entityType).then((entities) => {
         const idx = entities.findIndex(
             (entity) => entity.id === updatedEntity.id
         )
-        entities.splice(idx, 1, updatedEntity)
+        entities.splice(idx, 1)
+        entities.unshift(updatedEntity)
         _save(entityType, entities)
         return updatedEntity
     })

@@ -18,21 +18,24 @@ width: 35%;
 display: flex;
 }
 .note-nav{
+    
     width: 15%;
     height: 100%;
-    /* border: 3px solid pink; */
+    border: 5.5px ridge silver; 
+    border-left: none;
+    background-color: rgba(235, 196, 134, 0.451);
+    border-radius: 0 50% 50% 0;
+
 }
 .note-content{
     align-items: center;
     width:85%;
     /* border: 3px solid red; */
 }
-.notes-content{
-
-}
 .lists-devider{
   font-size: 22px; 
    border-bottom: 1.5px ridge silver; 
+   
 }
 .note-search-bar{
 position: absolute;
@@ -113,6 +116,7 @@ width:100%;
 padding:15px;
 border:2px ridge silver;
 background-color: antiquewhite;
+/* background-color: #8cd3ec9e; */
 min-height: 250px;
 width: 100%;
 display: flex;
@@ -137,8 +141,7 @@ min-height: 320px;
 min-height: 10px;
 }
 .note-video{
-min-height: 210px;
-/* max-width: 380px; */
+min-height: 300px;
 }
 .note-footer-btn{
   pointer-events:all;
@@ -164,7 +167,15 @@ min-height: 210px;
     justify-content: space-between;
     position: relative;
     margin-top: 10px;
-    /* margin-bottom: 10px; */
+    
+}
+.note-footer{
+    border-top:  1px solid silver;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 10px; 
 }
 .note-footer-btn:hover{
     opacity: 1;
@@ -175,6 +186,9 @@ min-height: 210px;
 }
 .note-footer-btn.edit{
         background-image: url("../../../img/edit-icon.png");
+}
+.note-footer-btn.duplicate{
+    background-image: url("../../../img/duplicate-icon-png-40244.png");
 }
 .note-footer-btn.mail{
     background-image: url("../../../img/send-email-icon.png");
@@ -218,8 +232,54 @@ cursor: pointer;
 .unDone:hover{
  color: rgb(191, 5, 5);
 }
-.colorP{
-    opacity: 0;
+.colorPicker {
+    border-radius: 50%;
+    width: 3px;
+    height: 3px;
 }
+.colorPicker{
+    display: flex;
+    justify-content: space-around;
+    width:100%;
+    border-radius: 0 0 20% 20%;
+    transition-delay: 0.7s;
+    height: 5px;
+    transition: height 0.4s;
+}
+.cPicker{
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.active-btn{
+ transition-delay: 0.4s;
+ border:2px solid black;
+    width: 20px;
+    height: 20px;
+    border-radius:50%;
+    display: flex;
+    z-index: 8;
+}
+.active-btn.btnBlue{
+
+background-color: #8cd3ec9e;
+}
+.active-btn.btnGreen{
+background-color: #8dd774;
+}
+.active-btn.btnCoffe{
+background-color: #bf9e53;
+}
+.active-btn.btnGray{
+background-color: #faebd7;
+}
+.active-btn.btnRed{
+background-color: #eb7474;
+}
+.border-line{
+    
+}
+
+
 
 
