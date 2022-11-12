@@ -14,10 +14,10 @@ export default {
     `,
     data() {
         return {
-            note: this.note,
+            // note: this.note,
             selectedNote: null,
             filterBy: null,
-            noteToEdit:"",
+            // noteToEdit:"",
         }
     },
   methods: {
@@ -32,14 +32,16 @@ export default {
          return this.note.info.url
     },
      save(){
-      noteService.save(this.note)
-        .then(note => {
-             showSuccessMsg(`Note saved (Note id: ${mote.id})`)
-                })
-                .catch(err => {
-               console.log('OOps:', err)
-               showErrorMsg(`Cannot save note`)
-           })
+       noteService.save(this.note)
+        this.note=""
+        // .then(note => {
+        //   this.note=""
+        //      showSuccessMsg(`Note saved (Note id: ${mote.id})`)
+        //         })
+        //         .catch(err => {
+        //        console.log('OOps:', err)
+        //        showErrorMsg(`Cannot save note`)
+        //    })
         }
     },
   components: {

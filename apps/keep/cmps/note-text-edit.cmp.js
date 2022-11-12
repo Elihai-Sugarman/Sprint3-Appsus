@@ -1,4 +1,4 @@
-
+import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
 import { noteService } from '../services/note-service.js'
 
 export default {
@@ -33,7 +33,7 @@ export default {
      save(){
       noteService.save(this.note)
         .then(note => {
-             showSuccessMsg(`Note saved (Note id: ${mote.id})`)
+             showSuccessMsg(`Note saved (Note id: ${note.id})`)
                 })
                 .catch(err => {
                console.log('OOps:', err)

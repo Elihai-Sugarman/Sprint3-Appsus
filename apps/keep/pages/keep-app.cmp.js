@@ -10,7 +10,7 @@ export default {
     template: `
    <section class="keep-app flex flex-row">
         <section class="note-nav">
-        <note-editing class="note-editing" :note='noteToEdit'/>
+        <note-editing class="note-editing" @clearNote=clearNote($event) :note='noteToEdit'/>
         </section>
         
         <section class="note-content flex flex-column">
@@ -44,6 +44,9 @@ export default {
                 //     console.log('OOPS', err)
                 //     showErrorMsg('Cannot remove Note')
                 // })
+        },
+        clearNote(note) {
+            console.log(note)
         },
         duplicate(noteId) {
             const idx = this.notes.findIndex(note => note.id === noteId)
