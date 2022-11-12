@@ -57,7 +57,7 @@ export default {
             return { 'low-price': amount < 20, 'high-price': amount > 150 }
         },
         imgUrl() {
-            return `../../../../assets/img/${this.book.thumbnail}`
+            return `assets/img/${this.book.thumbnail}`
         },
     },
     components: {

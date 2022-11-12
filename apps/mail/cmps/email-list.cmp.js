@@ -5,8 +5,9 @@ export default {
     template: `
     <section class="email-list-cmp">
     <section class="mail-list-header">
-        <img class="delete-email-icon" @click="deleteEmails" src="../../../assets/img/trash-icon.png">
-        <router-link  to="/mail/compose"><button class="compose-btn">compose</button></router-link>
+        <img class="delete-email-icon" @click="deleteEmails" title="Delete" src="assets/img/trash-icon.png">
+        <!-- <router-link  to="/mail/compose"><button class="compose-btn">compose</button></router-link> -->
+        <router-link  to="/mail/compose"><img class="compose-icon" title="New Email" src="assets/img/compose.png"></router-link>
         </section>
         <table>
             <email-preview v-for="email in currEmails" :key="email.id" :email="email" @checked="checkEmail"></email-preview>

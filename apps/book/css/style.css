@@ -425,3 +425,8 @@ a {
     justify-content: space-between;
     align-self: center;
 }
+.remove-book-btn {
+    color: black;
+    background-color: transparent;
+    border: 1px solid;
+}

@@ -10,7 +10,7 @@ export default {
                     <section class="actions">
                     <router-link :to="'/book/' + book.id">Details</router-link> |
                     <router-link :to="'/book/edit/' + book.id">Review</router-link> |
-                    <button @click.stop="remove(book.id)">x</button>
+                    <button @click.stop="remove(book.id)" class="remove-book-btn">x</button>
                     </section>
                 </li>
             </ul>
@@ -22,9 +22,9 @@ export default {
         },
         showDetails(book) {
             this.$emit('selected', book)
-        }
+        },
     },
     components: {
         bookPreview,
-    }
+    },
 }

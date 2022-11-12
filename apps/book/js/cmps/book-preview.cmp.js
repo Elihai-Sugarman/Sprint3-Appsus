@@ -23,7 +23,7 @@ export default {
     },
     methods: {
         imgUrl() {
-            return `../../../../assets/img/${this.book.thumbnail}`
+            return `assets/img/${this.book.thumbnail}`
         },
     },
 }
