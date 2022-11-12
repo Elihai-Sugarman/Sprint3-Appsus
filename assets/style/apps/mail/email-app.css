@@ -90,9 +90,11 @@ td {
     width: 19%;
 }
 .subject {
-    width: 65%;
+    width: 45%;
 }
 .date {
+    text-align: right;
+    padding-right: 10px;
 }
 .table {
 }

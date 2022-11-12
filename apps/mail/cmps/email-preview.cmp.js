@@ -7,7 +7,7 @@ export default {
     template: `
     <tr class="table-raw" v-if="email">
         <td class="check-box-table"><input class="check-box" type="checkbox" @input="checkEmail"></td>
-        <td class="star-table" v-if="email.isStar" class="email-star star" @click="changeStar">&#9733;</td>
+        <td class="star-table email-star star" v-if="email.isStar" @click="changeStar">&#9733;</td>
         <td v-else class="email-star" @click="changeStar">&#9734;</td>
         <td class="adress table" :class="readOrNot" @click="readEmail"><router-link :to="'/mail/' + email.id">{{ getAdress }}</router-link></td>
         <td class="subject table" :class="readOrNot" @click="readEmail"><router-link :to="'/mail/' + email.id">{{ email.subject }}</router-link></td>
