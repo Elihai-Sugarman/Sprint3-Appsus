@@ -8,7 +8,9 @@ export default {
         <router-link :to="'mail'">
             <button class="mail"></button>
         </router-link>
-        <button class="book"></button>
+        <router-link :to="'book'">
+            <button class="book"></button>
+        </router-link>
         </section>
         </section>
     `,

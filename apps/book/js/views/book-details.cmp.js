@@ -23,12 +23,13 @@ export default {
     `,
     data() {
         return {
-           book:null,
+            book: null,
         }
     },
-    created(){
-        bookService.get(this.$route.params.id)
-            .then(book => this.book = book)
+    created() {
+        bookService
+            .get(this.$route.params.id)
+            .then((book) => (this.book = book))
     },
     computed: {
         howLong() {
@@ -37,25 +38,29 @@ export default {
             return ' Light Reading'
         },
         howOld() {
-            if (((new Date().getFullYear()) - (this.book.publishedDate)) > 10) return 'Veteran Book'
-            if (((new Date().getFullYear()) - (this.book.publishedDate)) <= 1) return 'New!'
+            if (new Date().getFullYear() - this.book.publishedDate > 10)
+                return 'Veteran Book'
+            if (new Date().getFullYear() - this.book.publishedDate <= 1)
+                return 'New!'
             return ''
         },
         price() {
-            return new Intl.NumberFormat('en-IN', { style: 'currency', currency: this.book.listPrice.currencyCode }).format(this.book.listPrice.amount)
+            return new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: this.book.listPrice.currencyCode,
+            }).format(this.book.listPrice.amount)
         },
         priceStyle() {
-            const { listPrice: { amount } } = this.book
+            const {
+                listPrice: { amount },
+            } = this.book
             return { 'low-price': amount < 20, 'high-price': amount > 150 }
         },
-        imgUrl(){
-            return `img/${this.book.thumbnail}`
+        imgUrl() {
+            return `../../../../assets/img/${this.book.thumbnail}`
         },
     },
     components: {
-        longText
-    }
-
-
-
+        longText,
+    },
 }

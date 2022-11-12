@@ -25,37 +25,37 @@ const options = {
     components: {
         appHeader,
         appFooter,
-        userMsg
-    }
+        userMsg,
+    },
 }
 const routerOptions = {
     history: createWebHashHistory(),
     routes: [
         {
             path: '/',
-            component: homePage
+            component: homePage,
         },
         {
             path: '/book',
-            component: bookApp
+            component: bookApp,
         },
         {
             path: '/book/:id',
-            component: bookDetails
+            component: bookDetails,
         },
         {
             path: '/book/edit/:id?',
-            component: bookEditCmp
+            component: bookEditCmp,
         },
         {
             path: '/book/add',
-            component: bookAddCmp
+            component: bookAddCmp,
         },
         {
             path: '/about',
-            component: aboutPage
+            component: aboutPage,
         },
-    ]
+    ],
 }
 
 const app = createApp(options)

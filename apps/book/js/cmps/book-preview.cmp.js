@@ -1,3 +1,5 @@
+// import some from '../../../../assets/img'
+
 export default {
     props: ['book'],
     template: `
@@ -9,15 +11,19 @@ export default {
     `,
     computed: {
         formattedNum() {
-            const { language, listPrice: { amount, currencyCode } } = this.book
-            return new Intl.NumberFormat(language,
-                { style: 'currency', currency: currencyCode }).format(amount)
-
+            const {
+                language,
+                listPrice: { amount, currencyCode },
+            } = this.book
+            return new Intl.NumberFormat(language, {
+                style: 'currency',
+                currency: currencyCode,
+            }).format(amount)
         },
     },
     methods: {
         imgUrl() {
-            return`img/${this.book.thumbnail}`
-        }
+            return `../../../../assets/img/${this.book.thumbnail}`
+        },
     },
 }

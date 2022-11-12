@@ -30,7 +30,6 @@ export default {
     },
     methods: {
         filter(input) {
-            console.log(input)
             emailService.setText(input)
         },
     },

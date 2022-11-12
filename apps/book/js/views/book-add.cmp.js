@@ -1,13 +1,12 @@
-import { bookApiService } from "../services/book-list-api.service.js"
+import { bookApiService } from '../services/book-list-api.service.js'
 export default {
-
     template: `
     <router-link class="back-btn" to="/book">Back</router-link>
     <section class="book-add">
             <h1 class="book-add-title" >Search for A Book Title</h1>
             <form class="book-add-form" @submit.prevent>
                 <input v-model="searchTeaxt" v-on:input="getText" ref="full" type="text" placeholder="Book Title">
-                @submit.prevent="onSubmit"
+                <!-- @submit.prevent="onSubmit" -->
             </form>
         </section>
         <section> 
@@ -22,10 +21,10 @@ export default {
         return {
             searchTeaxt: null,
             items: null,
-            render:false
-            }
-        },
-   
+            render: false,
+        }
+    },
+
     mounted() {
         this.$refs.full.focus()
     },
@@ -37,17 +36,17 @@ export default {
     methods: {
         getText() {
             if (this.searchTeaxt.length > 4) {
-                bookApiService.getBookDetails(this.searchTeaxt)
-                    .then(user => this.items= user)
-            }   
-            
-            
+                bookApiService
+                    .getBookDetails(this.searchTeaxt)
+                    .then((user) => (this.items = user))
+            }
         },
         bookSubmit() {
             console.log(arguments)
         },
-        save(){
-            bookService.addReview(this.$route.params.id, this.newReview)
+        save() {
+            bookService
+                .addReview(this.$route.params.id, this.newReview)
                 .then(() => {
                     const msg = {
                         txt: `Review saved${this.$route.params.id}`,
@@ -57,10 +56,6 @@ export default {
                     eventBus.emit('user-msg', msg)
                     this.$router.push('/book')
                 })
-        }
-    }
-        
-    
+        },
+    },
 }
-       
-   

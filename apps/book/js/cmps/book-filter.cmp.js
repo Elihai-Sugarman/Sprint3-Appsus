@@ -1,8 +1,8 @@
 export default {
-    template:`
+    template: `
     <section class="book-filter">
     
-            filters:
+            <h1>filters:</h1>
             <label class="text-filter">
                 Key letters:
                 <input v-model="filterBy.title" @input="filter"  type="text" placeholder="Search key letters">
@@ -23,12 +23,12 @@ export default {
                 title: '',
                 fromPrice: 0,
                 toPrice: Infinity,
-            }
+            },
         }
     },
     methods: {
         filter() {
             this.$emit('filter', { ...this.filterBy })
-        }
-    }
+        },
+    },
 }
